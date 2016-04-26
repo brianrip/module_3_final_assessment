@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/rails-api/active_model_serializers
+  revision: d43b32a4d338ecaf72f93ac4cca11a0919fe226f
+  specs:
+    active_model_serializers (0.10.0.rc5)
+      actionpack (>= 4.0)
+      activemodel (>= 4.0)
+      railties (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +38,12 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (5.0.1.20140414130214)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     capybara (2.7.0)
       addressable
@@ -48,6 +63,8 @@ GEM
     commonjs (0.2.7)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    database_cleaner (1.5.3)
+    debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -57,8 +74,21 @@ GEM
       multipart-post (>= 1.2, < 3)
     figaro (1.1.1)
       thor (~> 0.14)
+    haml (4.0.7)
+      tilt
+    haml-rails (0.9.0)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 4.0.6, < 5.0)
+      html2haml (>= 1.0.1)
+      railties (>= 4.0.1)
     hashdiff (0.3.0)
     hike (1.2.3)
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -115,6 +145,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
     ref (2.0.0)
+    responders (1.1.2)
+      railties (>= 3.2, < 4.2)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -132,6 +164,8 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby_parser (3.8.1)
+      sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -139,6 +173,9 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sexp_processor (4.7.0)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.7.1)
     sprockets (2.12.4)
@@ -167,7 +204,7 @@ GEM
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
     vcr (3.0.1)
-    webmock (1.24.2)
+    webmock (2.0.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -178,19 +215,26 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
+  better_errors
+  binding_of_caller
   capybara
   coffee-rails (~> 4.0.0)
+  database_cleaner
   faker
   faraday
   figaro
+  haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   launchy
   less-rails-bootstrap
   pry
   rails (= 4.1.4)
+  responders
   rspec-rails
   sass-rails (~> 4.0.3)
+  shoulda-matchers (~> 3.1)
   spring
   sqlite3
   therubyracer

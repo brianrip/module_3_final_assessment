@@ -1,9 +1,11 @@
 module Api
   module V1
-    class ItemsController <
+    class ItemsController < ApiController
+      respond_to :json
+      def index
+        respond_with Items.all
+      end
 
     end
-
   end
-
 end
