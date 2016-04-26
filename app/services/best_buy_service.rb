@@ -6,7 +6,6 @@ class BestBuyService
       conn.request  :url_encoded
       conn.response :logger
       conn.adapter  Faraday.default_adapter
-      # conn.headers['Content-Type'] = 'application/json'
       conn.params['format'] = 'json'
       conn.params['apiKey'] = ENV['BEST_BUY_API_KEY']
     end
@@ -19,7 +18,6 @@ class BestBuyService
       Product.new(result)
     end
  end
- # /v1/products/products(apple)?apiKey=v37kj6xmax5y5tbtxx9gpg82&format=json&pageSize=15
 
 private
   def parse(response)
