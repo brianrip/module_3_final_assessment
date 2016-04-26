@@ -15,6 +15,10 @@ module Api
         respond_with Item.find(params[:id]).destroy
       end
 
+      def create
+        respond_with Item.create(item_params)
+      end
+
 
       private
         def item_params
