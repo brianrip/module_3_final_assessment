@@ -17,7 +17,6 @@ RSpec.describe "Items api" do
 
     items = JSON.parse(response.body)
 
-
     expect(status).to eq(200)
     expect(items.count).to eq(2)
     expect(items.first).to have_key "name"
@@ -25,15 +24,32 @@ RSpec.describe "Items api" do
     expect(items.first).to have_key "image_url"
     expect(items.first).to_not have_key :created_at
     expect(items.first).to_not have_key :updates_at
+  end
 
+  it "returns single item" do
+    item1 = Item.create(
+      name: "Cat",
+      description: "furry",
+      image_url: "http://robohash.org/.png?set=set2&bgset=bg1&size=200x200"
+      )
+    item2 = Item.create(
+      name: "dog",
+      description: "silly",
+      image_url: "http://robohash.org/"
+      )
+
+    get "/api/v1/items/#{item1.id}.json"
+
+    item = JSON.parse(response.body)
+
+    expect(status).to eq(200)
+    require "pry"
+    binding.pry
+    expect(item["name"]).to eq("Cat")
+    expect(item["name"]).to_not eq("Dog")
   end
 end
-  # We need an API for the application that can both read and write data. Start by focusing on functionality for items. All of this should happen in a dedicated, versioned controller.
-  # ​
-  # When I send a GET request to `/api/v1/items`
-  # I receive a 200 JSON response containing all items
   # And each item has a name, description, and image_url but not the created_at or updated_at
-  # ​
   # When I send a GET request to `/api/v1/items/1`
   # I receive a 200 JSON response containing the name, description, and image_url but not the created_at or updated_at
   # ​
