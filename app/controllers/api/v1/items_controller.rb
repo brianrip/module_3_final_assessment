@@ -11,6 +11,11 @@ module Api
         respond_with Item.find(params[:id])
       end
 
+      def destroy
+        respond_with Item.find(params[:id]).destroy
+      end
+
+
       private
         def item_params
           params.permit(:name, :description, :image_url)
