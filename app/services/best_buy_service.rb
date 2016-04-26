@@ -12,8 +12,11 @@ class BestBuyService
     end
   end
 
-  def method_name
+  def products(keyword)
+    keyword.gsub(" ", "&")
 
+private
+  def parse(response)
+    JSON.parse(response.body, symbolize_names: true)
   end
-
 end
