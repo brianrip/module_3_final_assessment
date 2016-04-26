@@ -11,6 +11,10 @@ RSpec.feature 'Searching for items' do
       click_on "Find products"
 
       expect(current_path).to eq '/search'
+
+      within(".items") do
+          expect(page).to have_selector('h3', count: 15)
+      end
     end
   end
 end

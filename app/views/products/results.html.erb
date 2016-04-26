@@ -1,0 +1,13 @@
+<div class="items">
+
+<% @products.each do |product| %>
+<h3><%= product.name %></h3>
+<ul>
+<li><%= product.sku %></li>
+<li><%= product.customer_review_average %></li>
+<li><%= product.short_description %></li>
+<li><%= product.sale_price %></li>
+<li><%= product.image %></li>
+</ul>
+<% end %>
+</div>
