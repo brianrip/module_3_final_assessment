@@ -8,7 +8,10 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
+    <%= form_for(:search, url: '/search') do |f| %>
+    <%= f.text_field :keyword %>
+      <%= f.submit "Find products" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
-

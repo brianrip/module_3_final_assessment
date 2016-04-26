@@ -7,6 +7,9 @@ Rails.application.routes.draw do
      end
    end
 
+  post '/search', to: 'products#results'
+
+
   resources :items,  only: [:index, :show]
   resources :orders, only: [:index, :show]
   resources :users,  only: [:index, :show]

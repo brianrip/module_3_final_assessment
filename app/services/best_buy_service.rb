@@ -15,9 +15,9 @@ class BestBuyService
   def products(keyword)
     search_chars = keyword.gsub(" ", "&")
     results = parse(connection.get("products(search=#{search_chars})", pageSize: 15))
-    # results[:products].map do |result|
-    #   Product.new(result)
-    # end
+    results[:products].map do |result|
+      Product.new(result)
+    end
  end
  # /v1/products/products(apple)?apiKey=v37kj6xmax5y5tbtxx9gpg82&format=json&pageSize=15
 

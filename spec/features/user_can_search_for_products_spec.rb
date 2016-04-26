@@ -1,14 +1,17 @@
 require 'rails_helper'
 
-Rspec.feature 'Searching for items' do
+RSpec.feature 'Searching for items' do
   scenario 'by keyword it returns 15 results' do
+    VCR.use_cassette "products#search" do
 
-    visit '/'
+      visit '/'
 
-    fill_in("#search"), with: "sennheiser"
+      fill_in "search_keyword", with: "sennheiser"
 
-    expect(current_path).to eq '/search'
+      click_on "Find products"
 
+      expect(current_path).to eq '/search'
+    end
   end
 end
 
