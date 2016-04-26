@@ -33,7 +33,6 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "binding_of_caller"
-  gem "better_errors"
   gem "database_cleaner"
   gem "pry", :require => "pry"
 end
